@@ -168,6 +168,16 @@ header p {
   font-weight: inherit;
 }
 
+
+.label_text {
+  background-color: #E6E6E6;
+}
+
+#article_content {
+  height: 300px;
+  width: 1200px;
+}
+
 @media(max-width: 320px) {
   body {
     font-size: 1em;
@@ -287,4 +297,5 @@ header p {
     margin-top: 10px;
     margin-left: 1.05469%;
   }
+
 }

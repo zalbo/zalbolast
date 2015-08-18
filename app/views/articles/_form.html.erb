@@ -12,23 +12,32 @@
   <% end %>
 
   <div class="actions">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.label :title   %><br>
+    <%= f.text_field :title , class: "label_text" %>
   </div>
 
   <div class="actions">
     <%= f.label :content %><br>
-    <%= f.text_field :content %>
+    <%= f.text_area :content , class: "label_text" %>
   </div>
 
   <div class="actions">
     <%= f.label :category %><br>
-    <%= f.text_field :category %>
+    <%= f.radio_button :category, '3d' %>
+    <%= f.label :category, '3D', :value => '3d' %>
+    <%= f.radio_button :category, 'design' %>
+    <%= f.label :category, 'Design', :value => 'design' %>
+    <%= f.radio_button :category, 'audio' %>
+    <%= f.label :category, 'Audio', :value => 'audio' %>
+    <%= f.radio_button :category, 'elettronica' %>
+    <%= f.label :category, 'Elettronica', :value => 'elettronica' %>
+    <%= f.radio_button :category, 'z_test' %>
+    <%= f.label :category, 'Z-test', :value => 'z_test' %>
   </div>
 
   <div class="actions">
     <%= f.label :tag %><br>
-    <%= f.text_field :tag %>
+    <%= f.text_field :tag , class: "label_text" %>
     <%= f.submit %>
   </div>
 

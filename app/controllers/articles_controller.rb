@@ -24,12 +24,17 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    binding.pry
     @article = Article.create(article_params)
 
     respond_to do |format|
       if @article.save
-        binding.pry
+        ### take array with inside the images and save in the article
+        if params[:photos]
+          params[:photos].each { |image|
+            @article.images.create(upload_photo: image)
+          }
+        end
+        ###
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
         format.json { render :show, status: :created, location: @article }
       else
@@ -71,6 +76,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :content, :category, :tag , :photo)
+      params.require(:article).permit(:title, :content, :category, :tag )
     end
 end

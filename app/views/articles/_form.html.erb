@@ -36,7 +36,7 @@
   </div>
 
   <div class="actions">
-      <%= f.file_field :photo %>
+      <%= file_field_tag "photos[]", type: :file, multiple: true %>
 
     </div>
 

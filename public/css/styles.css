@@ -8,6 +8,22 @@ header p {
   margin-bottom: 1em;
 }
 
+.title_thumb {
+    z-index: 1;
+    position: absolute;
+    margin: auto;
+    padding-top: 120px;
+    width: 291px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.thumb {
+  position: absolute;
+  z-index: -1;
+}
+
+
 .image {
   display: block;
   width: 12%;
@@ -73,7 +89,6 @@ header p {
 
 .container-image {
   z-index: 12;
-  background-color: red;
 }
 
 .container-image:hover {
@@ -297,5 +312,6 @@ header p {
     margin-top: 10px;
     margin-left: 1.05469%;
   }
+
 
 }

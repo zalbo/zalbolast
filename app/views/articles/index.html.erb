@@ -4,8 +4,8 @@
 <div class="container _container container-2 clearfix">
   <% @articles.each do |article| %>
     <div class="container _element container-image">
-      <h6 class="title_thumb"><%= article.title %></h6>
-      <div class="thumb"><%= image_tag article.images[0].upload_photo.url(:thumb_medium) %></div>
+      <h6 id="Hand" class="title_thumb"><%= article.title %></h6>
+      <div id="Hand" class="thumb"><%= image_tag article.images[0].upload_photo.url(:thumb_medium) %></div>
     </div>
   <% end %>
 </div>

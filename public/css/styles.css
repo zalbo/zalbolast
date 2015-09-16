@@ -1,4 +1,6 @@
-body {
+
+
+body  {
   background-color: rgb(255, 255, 255);
   font: 300 1.25em/1.38 Oswald;
   color: rgb(57, 57, 57);
@@ -19,7 +21,7 @@ header p {
     padding-top: 120px;
     width: 291px;
     text-align: center;
-    font-size: 30px;
+
 }
 
 .thumb {
@@ -52,7 +54,7 @@ header p {
 }
 
 .text {
-  font-size: 1.5em;
+
   text-align: center;
 }
 
@@ -73,7 +75,7 @@ header p {
 .container ._text {
   float: left;
   height: 60px;
-  font-size: 1em;
+
   line-height: 1.38;
   text-align: center;
   text-transform: uppercase;
@@ -181,7 +183,7 @@ header p {
 }
 
 .text span {
-  font-size: 0.467em;
+
   font-weight: inherit;
 }
 
@@ -197,7 +199,7 @@ header p {
 
 @media(max-width: 320px) {
   body {
-    font-size: 1em;
+
   }
 
   .container .container {
@@ -215,12 +217,12 @@ header p {
 
   .text {
     margin-top: 468px;
-    font-size: 1.25em;
+
   }
 
   .container ._text {
     position: relative;
-    font-size: 16px;
+
   }
 
   .container .container-10 {
@@ -268,7 +270,7 @@ header p {
     width: 83.125%;
     margin-top: 31px;
     margin-left: 8.41667%;
-    font-size: 1.25em;
+
   }
 
   ._container-1 {

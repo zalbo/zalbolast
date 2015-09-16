@@ -103,12 +103,12 @@ a:hover {
    ========================================================================== */
 
 /**
- * Address variable `h1` font-size and margin within `section` and `article`
+ * Address variable `h1`   and margin within `section` and `article`
  * contexts in Firefox 4+, Safari 5, and Chrome.
  */
 
 h1 {
-    font-size: 2em;
+     : 2em;
     margin: 0.67em 0;
 }
 
@@ -133,9 +133,7 @@ strong {
  * Address styling not present in Safari 5 and Chrome.
  */
 
-dfn {
-    font-style: italic;
-}
+
 
 /**
  * Address differences between Firefox and other browsers.
@@ -165,7 +163,7 @@ kbd,
 pre,
 samp {
     font-family: monospace, serif;
-    font-size: 1em;
+     : 1em;
 }
 
 /**
@@ -189,7 +187,7 @@ q {
  */
 
 small {
-    font-size: 80%;
+     : 80%;
 }
 
 /**
@@ -198,7 +196,7 @@ small {
 
 sub,
 sup {
-    font-size: 75%;
+     : 75%;
     line-height: 0;
     position: relative;
     vertical-align: baseline;
@@ -277,7 +275,7 @@ input,
 select,
 textarea {
     font-family: inherit; /* 1 */
-    font-size: 100%; /* 2 */
+     : 100%; /* 2 */
     font-weight: inherit; /* 1 */
     margin: 0; /* 3 */
     padding: 0;
@@ -430,8 +428,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
   border: 0;
   outline: 0;
   font-weight: inherit;
-  font-style: inherit;
-  font-size: 100%;
+   : 100%;
   font-family: inherit;
   vertical-align: baseline;
 }
@@ -483,7 +480,7 @@ input,
 fieldset,
 textarea,
 select {
-  font-size: inherit;
+   : inherit;
   color: inherit;
   border: none;
   border-radius: 0;

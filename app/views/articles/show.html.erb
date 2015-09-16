@@ -1,13 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <!-- change photo in back ground -->
-<script type="text/javascript">
+<script>
     $(document).ready(function() {
         $('._container-1 ').css('background-image', 'url(<%= @article.images[0].upload_photo.url(:original)%>)');
+
     });
+
 </script>
+
 
 
 <p class="text _text text-2"><%= @article.title %></p>
 
-<%= @article.content %>
+<%= markdown(@article.content) %>

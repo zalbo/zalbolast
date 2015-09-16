@@ -463,10 +463,20 @@ q:before, q:after {
 blockquote, q {
   quotes: "" "";
 }
-a,
-a:hover,
+a {
+  color: #EA9D10;
+text-decoration: blink;
+background: transparent;
+}
+a:hover {
+  color: #EA9D10;
+text-decoration: blink;
+background: transparent;
+}
 a:visited {
-  text-decoration: none;
+  color: #EA9D10;
+text-decoration: blink;
+background: transparent;
 }
 button,
 input,

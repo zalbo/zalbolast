@@ -1,4 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+<!-- change photo in back ground -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('._container-1 ').css('background-image', 'url(<%= @article.images[0].upload_photo.url(:original)%>)');
+    });
+</script>
+
+
+<p class="text _text text-2"><%= @article.title %></p>
+
+<%= @article.content %>

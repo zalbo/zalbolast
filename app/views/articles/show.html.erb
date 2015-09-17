@@ -4,9 +4,7 @@
 <script>
     $(document).ready(function() {
         $('._container-1 ').css('background-image', 'url(<%= @article.images[0].upload_photo.url(:original)%>)');
-
     });
-
 </script>
 
 
@@ -14,3 +12,9 @@
 <p class="text _text text-2"><%= @article.title %></p>
 
 <%= markdown(@article.content) %>
+
+<% @article.images.each do |image| %>
+  <div id="Hand" class="container _element container-image">
+    <%= image_tag(image.upload_photo.url(:medium) , height: '720', width: '720') %>
+  </div>
+<% end %>

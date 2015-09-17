@@ -1,4 +1,24 @@
 
+.login {
+    position: absolute;
+    text-align: -webkit-right;
+    width: 1400px;
+      border-right-width: 40px;
+}
+
+.background_login {
+    height: 27px;
+    position: absolute;
+    width: 1440px;
+    z-index: 0;
+    background: #C5C5C5;
+    opacity: 0.2;
+}
+strong {
+    color: white;
+}
+
+
 p.text._text.text-2 {
     font-size: xx-large;
 }

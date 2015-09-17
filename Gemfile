@@ -29,8 +29,7 @@ gem 'pry'
 
 gem "paperclip", "~> 4.3"
 gem 'redcarpet', '~> 3.3.2' #render markdown
-gem 'albino'
-gem 'nokogiri'
+gem 'devise' #user gem 
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

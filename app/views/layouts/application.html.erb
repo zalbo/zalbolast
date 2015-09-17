@@ -11,7 +11,23 @@
   <link href="http://fonts.googleapis.com/css?family=Oswald:300|Bitter:700,400" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/css/standardize.css">
   <link rel="stylesheet" href="/css/styles.css">
+
+<div class="background_login">
+</div>
+
+<div class="login">
+  <% if user_signed_in? %>
+    <strong> Logged in as <%= current_user.email %></strong>.
+    <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+  <% else %>
+    <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+    <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+  <% end %>
+</div>
 <header class="_container _container-1 clearfix">
+
+
   <%= link_to image_tag("/images/logo-02(2).svg"), articles_path , :class=>"image image-1"%>
   <div class="text _text text-1 font">
     <p>"Devi tenere vivo il bambino che è in te:&nbsp;senza di lui non si può creare"</p>
@@ -31,4 +47,8 @@
   </ul>
 </body>
 </html>
+
+
+
+
 <%= yield %>

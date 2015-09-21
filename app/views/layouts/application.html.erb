@@ -25,6 +25,7 @@
     <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
   <% end %>
 </div>
+
 <header class="_container _container-1 clearfix">
 
 
@@ -47,6 +48,13 @@
   </ul>
 </body>
 </html>
+
+<% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
 
 
 

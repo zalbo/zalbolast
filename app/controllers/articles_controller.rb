@@ -25,6 +25,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
+    binding.pry
     @article = Article.new
   end
 

@@ -25,7 +25,6 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
-    binding.pry
     @article = Article.new
   end
 
@@ -38,22 +37,18 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.create(article_params)
 
-    respond_to do |format|
+
       if @article.save
+
         ### take array with inside the images and save in the article
-        if params[:photos]
-          params[:photos].each { |image|
-            @article.images.create(upload_photo: image)
-          }
-        end
+      #  if params[:photos]
+      #    params[:photos].each { |image|
+      #      @article.images.create(upload_photo: image)
+      #    }
+      #  end
         ###
-        format.html { redirect_to @article, notice: 'Article was successfully created.' }
-        format.json { render :show, status: :created, location: @article }
-      else
-        format.html { render :new }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
+        redirect_to "/articles/#{@article.id}/pages/new"
       end
-    end
   end
 
   # PATCH/PUT /articles/1
@@ -73,9 +68,9 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1
   # DELETE /articles/1.json
   def destroy
-    @article.destroy
+    @article.delete
     respond_to do |format|
-      format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
+      format.html { redirect_to "/" }
       format.json { head :no_content }
     end
   end

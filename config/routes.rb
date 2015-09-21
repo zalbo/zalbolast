@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  resources :pages
   devise_for :users
   get 'articles/category'
+
 
   resources :articles
   # The priority is based upon order of creation: first created -> highest priority.
@@ -8,6 +10,10 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'articles#index'
+
+  resources :articles do
+    resources :pages
+  end
 
 
 

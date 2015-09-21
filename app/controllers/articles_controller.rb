@@ -47,7 +47,7 @@ class ArticlesController < ApplicationController
       #    }
       #  end
         ###
-        redirect_to "/articles/#{@article.id}/pages/new"
+        redirect_to "/articles/#{@article.id}/pages/new/?id=#{@article.id}"
       end
   end
 

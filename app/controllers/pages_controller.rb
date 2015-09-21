@@ -24,10 +24,17 @@ class PagesController < ApplicationController
   # POST /pages
   # POST /pages.json
   def create
-    @page = Page.new(page_params)
+    binding.pry
+    @page = Page.create(page_params)
 
     respond_to do |format|
       if @page.save
+        if params[:photos]
+          params[:photos].each { |image|
+            binding.pry
+            @page.images.create(upload_photo: image)
+          }
+       end
         format.html { redirect_to @page, notice: 'Page was successfully created.' }
         format.json { render :show, status: :created, location: @page }
       else
@@ -69,6 +76,7 @@ class PagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
-      params[:page]
+      binding.pry
+      params.require(:page).permit(:title, :content , :article_id )
     end
 end

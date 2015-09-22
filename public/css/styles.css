@@ -1,3 +1,9 @@
+input[type="submit"] {
+    color: #ECA729;
+    font-size: inherit;
+    background-color: white;
+}
+
 img.avatar {
     width: 100px;
     height: 100px;

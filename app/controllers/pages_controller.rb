@@ -24,22 +24,21 @@ class PagesController < ApplicationController
   # POST /pages
   # POST /pages.json
   def create
-    binding.pry
     @page = Page.create(page_params)
+    if @page.save
+      @article  =  Article.find(@page.article_id)
+      if params[:photos]
+        params[:photos].each { |image|
+          @page.images.create(upload_photo: image)
+        }
+      end
 
-    respond_to do |format|
-      if @page.save
-        if params[:photos]
-          params[:photos].each { |image|
-            binding.pry
-            @page.images.create(upload_photo: image)
-          }
-       end
-        format.html { redirect_to @page, notice: 'Page was successfully created.' }
-        format.json { render :show, status: :created, location: @page }
-      else
-        format.html { render :new }
-        format.json { render json: @page.errors, status: :unprocessable_entity }
+      if params[:commit] == "Close Article"
+        @article.update(:article_close => true)
+        redirect_to "/"
+      elsif params[:commit] == "Create other page"
+        @article.update(:article_close => false)
+        redirect_to "/articles/#{@article.id}/pages/new/?id=#{@article.id}"
       end
     end
   end
@@ -76,7 +75,6 @@ class PagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
-      binding.pry
       params.require(:page).permit(:title, :content , :article_id )
     end
 end

@@ -1,3 +1,7 @@
+require 'articles_helper'
+
+
+
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:new , :update, :destroy ]
   before_action :set_article, only: [:show, :edit, :update, :destroy ]
@@ -15,12 +19,12 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     @articles = Article.all
+    is_close_article
   end
 
   # GET /articles/1
   # GET /articles/1.json
   def show
-
   end
 
   # GET /articles/new
@@ -35,18 +39,10 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    @article = Article.create(article_params)
+    @article = Article.new(article_params)
 
 
       if @article.save
-
-        ### take array with inside the images and save in the article
-      #  if params[:photos]
-      #    params[:photos].each { |image|
-      #      @article.images.create(upload_photo: image)
-      #    }
-      #  end
-        ###
         redirect_to "/articles/#{@article.id}/pages/new/?id=#{@article.id}"
       end
   end
@@ -76,6 +72,7 @@ class ArticlesController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_article
       @article = Article.find(params[:id])

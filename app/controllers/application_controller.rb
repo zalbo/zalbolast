@@ -4,6 +4,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action  :configure_permitted_parameters, if: :devise_controller?
 
+  def is_close_article #check if there is article open and after delete this
+    @articles.each do |article|
+    if article.article_close
+      puts "article #{article.id } is close"
+    else
+      puts "article #{article.id} destroy..."
+        article.destroy
+      end
+    end
+  end
 
 
   protected

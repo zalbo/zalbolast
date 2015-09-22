@@ -30,6 +30,10 @@
 
 
   <div class="actions">
-    <%= f.submit %>
+    <a confirm="are u sure?" rel="nofollow" data-method="Delete Article" href="/articles/<%= params[:article_id] %>">Delete</a>
+  </br>
+    <%= f.submit value: "Close Article"%>
+  </br>
+    <%= f.submit value: "Create other page"%>
   </div>
 <% end %>

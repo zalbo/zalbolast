@@ -1,3 +1,22 @@
+p.frase {
+  font-size: xx-large;
+  margin-bottom: 20px;
+}
+}
+
+p {
+
+}
+
+p.indice {
+    font-size: xx-large;
+    margin-top: 10px;
+}
+
+hr {
+   border-color: rgba(219, 219, 219, 0.25);
+}
+
 input[type="submit"] {
     color: #ECA729;
     font-size: inherit;

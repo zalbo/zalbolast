@@ -1,11 +1,32 @@
+
+input[type="radio"] {
+    height: 100px;
+}
+
+img.default {
+  width: 100px;
+}
+
+input#page_title {
+    font-size: xx-large;
+}
+
+textarea#page_content {
+    font-size: large;
+}
+
+textarea#page_content {
+  height: 500px;
+  width: 1200px;
+}
+
+form#new_page {
+    margin-left: 10px;
+}
+
 p.frase {
   font-size: xx-large;
   margin-bottom: 20px;
-}
-}
-
-p {
-
 }
 
 p.indice {

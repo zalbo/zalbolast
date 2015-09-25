@@ -1,5 +1,25 @@
 class PagesController < ApplicationController
-  before_action :set_page, only: [:show, :edit, :update, :destroy]
+  before_action :set_page, only: [ :show , :edit, :update, :destroy]
+  before_action :set_article, only: [ :index, :show , :edit, :update, :destroy]
+  protect_from_forgery except: :set_photo
+
+  def set_photo
+    @article = Article.find(params[:id])
+    @article.update(:default_photo => params[:default])
+    redirect_to "/"
+  end
+
+  def default_photo
+    @article = Article.find(params[:id])
+    @images = []
+    @article.pages.each do |page|
+      if page.images != []
+        page.images.each do |image|
+          @images << image
+        end
+      end
+    end
+  end
 
   # GET /pages
   # GET /pages.json
@@ -29,19 +49,20 @@ class PagesController < ApplicationController
       @article  =  Article.find(@page.article_id)
       if params[:photos]
         params[:photos].each { |image|
-          @page.images.create(upload_photo: image)
+          @page.images.create(upload_photo: image , article_id: params[:page][:article_id])
         }
       end
-
       if params[:commit] == "Close Article"
         @article.update(:article_close => true)
-        redirect_to "/"
+        redirect_to "/pages/default_photo/?id=#{@article.id}"
       elsif params[:commit] == "Create other page"
         @article.update(:article_close => false)
         redirect_to "/articles/#{@article.id}/pages/new/?id=#{@article.id}"
       end
     end
   end
+
+
 
   # PATCH/PUT /pages/1
   # PATCH/PUT /pages/1.json
@@ -69,6 +90,10 @@ class PagesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_article
+      @article = Article.find(@page.article_id)
+    end
+
     def set_page
       @page = Page.find(params[:id])
     end

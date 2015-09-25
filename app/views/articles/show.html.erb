@@ -2,8 +2,7 @@
 <!-- change photo in back ground -->
 <script>
     $(document).ready(function() {
-        $('._container-1 ').css('background-image', 'url(<%= @article.pages.first.images[0].upload_photo.url(:original)%>)');
-
+        $('._container-1 ').css('background-image', 'url(<%= Image.find(@article.default_photo).upload_photo.url(:original)%>)');
     });
 </script>
 

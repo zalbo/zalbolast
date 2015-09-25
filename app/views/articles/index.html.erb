@@ -4,7 +4,7 @@
   <% @articles.each do |article| %>
     <div id="Hand" class="container _element container-image">
         <%= link_to article.title , article , :class => "title_thumb" %>
-        <%= link_to (image_tag (article.pages.first.images[0].upload_photo.url(:thumb_medium))), article %>
+        <%= link_to (image_tag (Image.find(article.default_photo).upload_photo.url(:thumb_medium))), article %>
     </div>
   <% end %>
 </div>

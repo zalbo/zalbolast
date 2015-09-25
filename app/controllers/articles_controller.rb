@@ -40,8 +40,6 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(article_params)
-
-
       if @article.save
         redirect_to "/articles/#{@article.id}/pages/new/?id=#{@article.id}"
       end
@@ -80,6 +78,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :content, :category, :tag )
+      params.require(:article).permit(:title, :content, :category, :tag , :default_photo )
     end
 end

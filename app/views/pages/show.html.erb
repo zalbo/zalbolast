@@ -1,4 +1,14 @@
-<p id="notice"><%= notice %></p>
+
+<script>
+    $(document).ready(function() {
+        $('._container-1 ').css('background-image', 'url(<%= Image.find(Article.find(@page.article.id).default_photo).upload_photo.url(:original)%>)');
+
+    });
+</script>
+
+<p class="text _text text-2"><%= @page.title %></p>
+
+<%= markdown(@page.content) %>
 
 <%= link_to 'Edit', edit_page_path(@page) %> |
 <%= link_to 'Back', pages_path %>

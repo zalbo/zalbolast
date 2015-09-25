@@ -1,0 +1,13 @@
+<h1>Scegli l'immagine default per il tuo articolo </h1>
+
+<form action="/pages/default_photo/<%=params[:id]%>" method="post">
+      <fieldset>
+        <% @images.each do |ima| %>
+          <label><img class="default" src=<%= ima.upload_photo.url(:thumb_small)%> /> </label>
+          <input type="radio" name="default" value="<%=ima.id%>" />
+          <br>
+
+        <% end %>
+      </fieldset>
+      <input type="submit" value="Submit">
+</form>

@@ -2,7 +2,6 @@
 <script>
     $(document).ready(function() {
         $('._container-1 ').css('background-image', 'url(<%= Image.find(Article.find(@page.article.id).default_photo).upload_photo.url(:original)%>)');
-
     });
 </script>
 

@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   get 'pages/default_photo'
   post 'pages/default_photo/:id' => 'pages#set_photo'
 
+  get 'articles/category'
+  post 'articles/category' => 'articles#category'
+
 
   resources :pages
   devise_for :users
@@ -20,7 +23,7 @@ Rails.application.routes.draw do
   end
 
 
-  get 'articles/category'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

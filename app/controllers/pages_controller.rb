@@ -30,6 +30,7 @@ class PagesController < ApplicationController
   # GET /pages/1
   # GET /pages/1.json
   def show
+     @images = @page.images
   end
 
   # GET /pages/new

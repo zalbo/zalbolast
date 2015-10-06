@@ -1,6 +1,8 @@
-li.gallery {
+li.photo_gallery {
   width: 100px;
 height: 100px;
+display: inline-flex;
+margin: 10px;
 }
 
 
@@ -9,7 +11,7 @@ input[type="radio"] {
 }
 
 img.default {
-  width: 100px;
+  width: 150px;
 }
 
 input#page_title {

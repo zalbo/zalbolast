@@ -9,4 +9,7 @@ class Image < ActiveRecord::Base
     self.upload_photo
   end
 
+  def description
+    self.legend
+  end
 end

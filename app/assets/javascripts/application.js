@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require hermitage
+//= require hermitageanimation
 //= require jquery_ujs
-//= require turbolinks   
+//= require turbolinks
 //= require_tree .

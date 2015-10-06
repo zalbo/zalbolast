@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   before_action :set_article, only: [ :index, :show , :edit, :update, :destroy]
   protect_from_forgery except: :set_photo
 
+  ##### CHOOSE default PHOTO
   def set_photo
     @article = Article.find(params[:id])
     @article.update(:default_photo => params[:default])
@@ -20,6 +21,32 @@ class PagesController < ApplicationController
       end
     end
   end
+
+  #####
+
+  #####RENAME PHOTO
+
+  def rename_photo
+    @page = Page.find(params[:id_page])
+    @images = @page.images
+
+  end
+
+  def set_name_photo
+    @page = Page.find(params[:id_page])
+    @images = @page.images
+    @article = Article.find(@images[0].article_id)
+    @images.each do |ima|
+      ima.update(:legend => params[ima.id.to_s])
+    end
+    if @article.article_close == false
+      redirect_to "/articles/#{@article.id}/pages/new/?id=#{@article.id}"
+    else
+      redirect_to "/pages/default_photo/?id=#{@article.id}"
+    end
+  end
+
+  ####
 
   # GET /pages
   # GET /pages.json
@@ -55,10 +82,14 @@ class PagesController < ApplicationController
       end
       if params[:commit] == "Close Article"
         @article.update(:article_close => true)
-        redirect_to "/pages/default_photo/?id=#{@article.id}"
+        redirect_to "/pages/rename_photo/?id_page=#{@page.id}"
       elsif params[:commit] == "Create other page"
         @article.update(:article_close => false)
-        redirect_to "/articles/#{@article.id}/pages/new/?id=#{@article.id}"
+        if params[:photos]
+          redirect_to "/pages/rename_photo/?id_page=#{@page.id}"
+        else
+          redirect_to "/articles/#{@article.id}/pages/new/?id=#{@article.id}"
+        end
       end
     end
   end

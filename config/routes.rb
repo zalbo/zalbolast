@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   get 'pages/default_photo'
   post 'pages/default_photo/:id' => 'pages#set_photo'
 
+  get 'pages/rename_photo'
+  post 'pages/rename_photo/:id_page' => 'pages#set_name_photo'
+
   get 'articles/category'
   post 'articles/category' => 'articles#category'
 

@@ -1,0 +1,11 @@
+<h1>Aggiungi didascalia foto </h1>
+<form action="/pages/rename_photo/<%=params[:id_page]%>" method="post">
+      <fieldset>
+        <% @images.each do |ima| %>
+          <label><img class="default" src=<%= ima.upload_photo.url(:thumbnail_medium)%> /> </label>
+          <input name=<%=ima.id%> type="text"  size="40" maxlength="200" image_id=<%=ima.id%> />
+          <br>
+        <% end %>
+      </fieldset>
+      <input type="submit" value="Aggiorna">
+</form>

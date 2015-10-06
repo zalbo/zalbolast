@@ -8,6 +8,5 @@
 <p class="text _text text-2"><%= @page.title %></p>
 
 <%= markdown(@page.content) %>
-
-
-<%= render_gallery_for @images , item_class: 'gallery'%>
+<hr>
+<%= render_gallery_for @images, list_class: 'gallery', item_class: 'photo_gallery' ,  title: 'description'%>

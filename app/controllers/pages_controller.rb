@@ -82,7 +82,11 @@ class PagesController < ApplicationController
       end
       if params[:commit] == "Close Article"
         @article.update(:article_close => true)
-        redirect_to "/pages/rename_photo/?id_page=#{@page.id}"
+        if params[:photos]
+          redirect_to "/pages/rename_photo/?id_page=#{@page.id}"
+        else
+          redirect_to "/"
+        end
       elsif params[:commit] == "Create other page"
         @article.update(:article_close => false)
         if params[:photos]

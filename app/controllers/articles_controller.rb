@@ -25,6 +25,11 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+    if @article.default_photo != nil
+      @default_photo = Image.find(@article.default_photo).upload_photo.url(:original)
+    else
+      @default_photo = "/images/logo-02(2).svg"
+    end
   end
 
   # GET /articles/new

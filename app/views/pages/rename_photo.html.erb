@@ -3,8 +3,7 @@
       <fieldset>
         <% @images.each do |ima| %>
           <label><img class="default" src=<%= ima.upload_photo.url(:thumbnail_medium)%> /> </label>
-          <input name=<%=ima.id%> type="text"  size="40" maxlength="200" image_id=<%=ima.id%> />
-          <br>
+          <input name=<%=ima.id%> class="rename_photo"  type="text" value=<%= ima.upload_photo_file_name%>  size="40" maxlength="200" image_id=<%=ima.id%> />
         <% end %>
       </fieldset>
       <input type="submit" value="Aggiorna">

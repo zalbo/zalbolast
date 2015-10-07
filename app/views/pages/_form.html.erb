@@ -22,11 +22,20 @@
   <div class="actions">
       <%= f.label :content %><br>
       <%= f.text_area :content , class: "label_text" %>
-    </div>
+  </div>
 
+  <label>Video</label>
+
+  <div class="actions" id="field">
+        <%= f.text_area :url_youtube, class: "label_text_yt" , value:"" , name:"page[url_youtube][0]"  %>
+  </div>
+
+  <button type="button" id="button">Aggiungi un altro video</button> <br>
+
+  <label>Foto</label>
   <div class="actions">
    <%= file_field_tag "photos[]", type: :file, multiple: true %>
- </div>
+  </div>
 
 
   <div class="actions">

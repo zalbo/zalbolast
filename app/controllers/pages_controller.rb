@@ -75,6 +75,17 @@ class PagesController < ApplicationController
     @page = Page.create(page_params)
     if @page.save
       @article  =  Article.find(@page.article_id)
+
+      #if there is video
+      if params[:page][:url_youtube0] != ""
+        urls = []
+        params[:page][:url_youtube].each do |url|
+          urls << url[1]
+          @page.update(:url_youtube => urls)
+        end
+      end
+
+      #if there is photo
       if params[:photos]
         params[:photos].each { |image|
           @page.images.create(upload_photo: image , article_id: params[:page][:article_id])

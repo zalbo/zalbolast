@@ -1,3 +1,43 @@
+div#field {
+    margin-bottom: 0px;
+}
+
+button#button {
+    position: absolute;
+    background-color: bisque;
+    border-color: azure;
+    border-style: double;
+    border: 3px;
+    position: absolute;
+}
+
+textarea.label_text_yt {
+    background-color: #E6E6E6;
+    width: 600px;
+    height: 20px;
+}
+
+input.rename_photo {
+  font-size: larger;
+  position: absolute;
+  margin-top: 60px;
+  margin-left: 10px;
+  border-color: black;
+  border-style: groove;
+  background-color: #E6E6E6;
+  color: rgb(134, 134, 134);
+  border-left-width: 1px;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+}
+
+input.rename_photo:focus {
+  color: black
+
+
+}
+
 li.photo_gallery {
   width: 100px;
 height: 100px;
@@ -12,6 +52,10 @@ input[type="radio"] {
 
 img.default {
   width: 150px;
+}
+
+input#page_url_youtube {
+    background-color: #E6E6E6;
 }
 
 input#page_title {

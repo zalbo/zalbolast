@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   before_action :set_page, only: [ :show , :edit, :update, :destroy]
-  before_action :set_article, only: [ :index, :show , :edit, :update, :destroy]
+  before_action :set_article, only: [ :index, :show , :edit, :update]
   protect_from_forgery except: :set_photo
 
   ##### CHOOSE default PHOTO
@@ -118,10 +118,6 @@ class PagesController < ApplicationController
   # DELETE /pages/1.json
   def destroy
     @page.destroy
-    respond_to do |format|
-      format.html { redirect_to pages_url, notice: 'Page was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   private

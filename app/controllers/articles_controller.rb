@@ -67,11 +67,9 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1
   # DELETE /articles/1.json
   def destroy
-    @article.delete
-    respond_to do |format|
-      format.html { redirect_to "/" }
-      format.json { head :no_content }
-    end
+    puts "#{@article.title} destroy..."
+    @article.destroy
+    redirect_to "/"
   end
 
   private

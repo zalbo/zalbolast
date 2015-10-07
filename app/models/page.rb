@@ -1,4 +1,4 @@
 class Page < ActiveRecord::Base
-  has_many :images, :dependent => :delete_all
+  has_many :images, :dependent => :destroy
   belongs_to :article
 end

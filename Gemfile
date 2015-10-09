@@ -33,6 +33,9 @@ gem 'devise' #user gem
 
 gem 'hermitage'#gallery gem
 
+gem 'will_paginate'# infinite scrool
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

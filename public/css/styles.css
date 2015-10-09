@@ -1,3 +1,8 @@
+.pagination {
+    position: absolute;
+    visibility: hidden;
+}
+
 div#field {
     margin-bottom: 0px;
 }
@@ -125,7 +130,7 @@ strong {
 }
 
 
-p.text._text.text-2 {
+p.text._text@pages[0]{
     font-size: xx-large;
 }
 
@@ -242,7 +247,7 @@ header p {
   color: rgb(255, 255, 255);
 }
 
-.text-2 {
+@pages[0]{
   width: 100%;
   min-height: 45px;
   margin: 500px auto 0;

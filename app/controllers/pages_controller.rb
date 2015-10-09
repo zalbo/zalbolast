@@ -58,6 +58,8 @@ class PagesController < ApplicationController
   # GET /pages/1.json
   def show
      @images = @page.images
+     default_photo_exist(@article)
+
   end
 
   # GET /pages/new
@@ -81,8 +83,8 @@ class PagesController < ApplicationController
         urls = []
         params[:page][:url_youtube].each do |url|
           urls << url[1]
-          @page.update(:url_youtube => urls)
         end
+        @page.update(:url_youtube => urls)
       end
 
       #if there is photo

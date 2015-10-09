@@ -16,6 +16,16 @@ class ApplicationController < ActionController::Base
   end
 
 
+  def default_photo_exist(article)
+    if article.default_photo != nil
+      @default_photo = Image.find(article.default_photo).upload_photo.url(:original)
+    else
+      @default_photo = "/images/logo-02(2).svg"
+    end
+  end
+
+  
+
   protected
 
   def configure_permitted_parameters

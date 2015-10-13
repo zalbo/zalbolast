@@ -1,12 +1,22 @@
 <div class="page">
-<p class="text _text text-2"><%= @pages[0].title %></p>
 
-<%= markdown(@pages[0].content) %>
-<%@pages[0].url_youtube.each do |url|%>
-<iframe width="560" height="315" src=<%=youtube_embed(url)%> frameborder="0" allowfullscreen></iframe>
+<%@pages.each do |page|%>
+
+<p class="text _text text-2"><%= page.title %></p>
+
+<% if user_signed_in? %>
+<%= link_to "Delete Page", page, :method => :delete, :confirm => "are u sure?" %>
+
+<% end %>
+
+  <%= markdown(page.content) %>
+  <%page.url_youtube.each do |url|%>
+    <iframe width="560" height="315" src=<%=youtube_embed(url)%> frameborder="0" allowfullscreen></iframe>
+  <%end%>
+
+  <hr>
+  <%= render_gallery_for page.images, list_class: 'gallery', item_class: 'photo_gallery' ,  title: 'description'%>
+  <div>
+
 
 <%end%>
-
-<hr>
-<%= render_gallery_for @pages[0].images, list_class: 'gallery', item_class: 'photo_gallery' ,  title: 'description'%>
-<div>

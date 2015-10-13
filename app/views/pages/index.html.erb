@@ -1,4 +1,10 @@
 
+<% if user_signed_in? %>
+<%= link_to "Delete Article", @article, :method => :delete, :confirm => "are u sure?" %>
+
+<% end %>
+
+
 <script>
     $(document).ready(function() {
         $('._container-1 ').css('background-image', 'url(<%=  @default_photo %>)');

@@ -16,5 +16,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require add_field_yt
-//= scroll
+//= require scrool
 //= require_tree .

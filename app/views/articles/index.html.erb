@@ -3,11 +3,11 @@
 <div class="container _container container-2 clearfix">
   <% @articles.each do |article| %>
     <div id="Hand" class="container _element container-image">
-        <%= link_to article.title , article , :class => "title_thumb" %>
+        <%= link_to article.title ,"/articles/#{article.id}/pages" , :class => "title_thumb" %>
          <% if article.default_photo != nil %>                         <!--         if the default_photo there isn't -->
-          <%= link_to image_tag(Image.find(article.default_photo).upload_photo.url(:thumbnail_medium)) , "/articles/#{article.id}/pages" %>
+          <%= link_to image_tag(Image.find(article.default_photo).upload_photo.url(:thumbnail_medium)) ,"/articles/#{article.id}/pages" %>
         <% else %>
-          <%= link_to image_tag("/images/no_image.png") , "/articles/#{article.id}/pages" %>
+          <%= link_to image_tag("/images/no_image.png"), "/articles/#{article.id}/pages" %>
         <% end %>
     </div>
   <% end %>

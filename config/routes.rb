@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+
   get 'pages/default_photo'
   post 'pages/default_photo/:id' => 'pages#set_photo'
 
@@ -20,6 +22,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'articles#index'
+
+
 
   resources :articles do
     resources :pages

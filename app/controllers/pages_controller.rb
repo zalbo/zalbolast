@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
-  before_action :set_page, only: [ :show , :edit, :update, :destroy]
-  before_action :set_article, only: [  :show , :edit, :update]
+  before_action :set_page, only: [ :show , :edit, :update , :destroy]
+  before_action :set_article, only: [  :show , :edit, :update , :destroy]
   protect_from_forgery except: :set_photo
 
   ##### CHOOSE default PHOTO
@@ -54,7 +54,6 @@ class PagesController < ApplicationController
     @article = Article.find(params[:article_id])
     @pages = @article.pages.paginate(:page => params[:page], :per_page => 1)
     default_photo_exist(@article)
-    #@pages = Page.all
   end
 
   # GET /pages/1
@@ -130,7 +129,13 @@ class PagesController < ApplicationController
   # DELETE /pages/1
   # DELETE /pages/1.json
   def destroy
+    @page.images.each do |image|
+      if @article.default_photo == image.id
+        @article.update(:default_photo => nil)
+      end
+    end
     @page.destroy
+    redirect_to "/articles/#{@article.id}/pages"
   end
 
   private

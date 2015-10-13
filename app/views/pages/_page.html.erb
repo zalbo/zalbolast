@@ -5,15 +5,16 @@
 <p class="text _text text-2"><%= page.title %></p>
 
 <% if user_signed_in? %>
-<%= link_to "Delete Page", page, :method => :delete, :confirm => "are u sure?" %>
-
+<%= link_to "Delete Page", page, :method => :delete, :confirm => "are u sure?" %> ||  
+<%= link_to "Edit Page",  "/articles/#{page.article_id}/pages/#{page.id}/edit" %>
 <% end %>
 
   <%= markdown(page.content) %>
-  <%page.url_youtube.each do |url|%>
-    <iframe width="560" height="315" src=<%=youtube_embed(url)%> frameborder="0" allowfullscreen></iframe>
+  <% if page.url_youtube[0] != ""%>
+    <%page.url_youtube.each do |url|%>
+      <iframe width="560" height="315" src=<%=youtube_embed(url)%> frameborder="0" allowfullscreen></iframe>
+    <%end%>
   <%end%>
-
   <hr>
   <%= render_gallery_for page.images, list_class: 'gallery', item_class: 'photo_gallery' ,  title: 'description'%>
   <div>

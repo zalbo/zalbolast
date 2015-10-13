@@ -15,6 +15,6 @@
 //= require hermitageanimation
 //= require jquery_ujs
 //= require turbolinks
-//= require add_field_yt
 //= require scrool
+//= require jquery.turbolinks
 //= require_tree .

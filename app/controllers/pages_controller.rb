@@ -115,15 +115,24 @@ class PagesController < ApplicationController
   # PATCH/PUT /pages/1
   # PATCH/PUT /pages/1.json
   def update
-    respond_to do |format|
-      if @page.update(page_params)
-        format.html { redirect_to @page, notice: 'Page was successfully updated.' }
-        format.json { render :show, status: :ok, location: @page }
-      else
-        format.html { render :edit }
-        format.json { render json: @page.errors, status: :unprocessable_entity }
+    @page.update(page_params)
+
+    #if there is video
+    if params[:page][:url_youtube0] != ""
+      urls = []
+      params[:page][:url_youtube].each do |url|
+        urls << url[1]
       end
+      @page.update(:url_youtube => urls)
     end
+        #if there is image
+    if params[:photos]
+      params[:photos].each { |image|
+        @page.images.create(upload_photo: image , article_id: params[:page][:article_id])
+      }
+    end
+
+    redirect_to "/articles"
   end
 
   # DELETE /pages/1

@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get 'articles/category'
   post 'articles/category' => 'articles#category'
 
+  post 'articles/:article_id' => 'articles#destroy'
+
 
   resources :pages
   devise_for :users

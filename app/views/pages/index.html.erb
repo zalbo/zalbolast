@@ -1,7 +1,6 @@
 
 <% if user_signed_in? %>
-<%= link_to "Delete Article", @article, :method => :delete, :confirm => "are u sure?" %>
-
+<a confirm="are u sure?" rel="nofollow" data-method="Delete Article" href="/articles/<%= params[:article_id] %>">Delete Article</a>
 <% end %>
 
 

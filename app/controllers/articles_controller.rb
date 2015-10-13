@@ -1,10 +1,8 @@
 require 'articles_helper'
 
-
-
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, only: [:new , :update, :destroy ]
-  before_action :set_article, only: [:show , :edit, :update, :destroy ]
+  before_action :authenticate_user!, only: [:new , :update, :destroy]
+  before_action :set_article, only: [:show , :edit, :update ]
 
 
   def category
@@ -63,6 +61,7 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1
   # DELETE /articles/1.json
   def destroy
+    @article = Article.find(params[:article_id])
     puts "#{@article.title} destroy..."
     @article.destroy
     redirect_to "/"

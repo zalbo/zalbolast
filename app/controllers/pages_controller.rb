@@ -78,13 +78,13 @@ class PagesController < ApplicationController
       @article  =  Article.find(@page.article_id)
 
       #if there is video
-      if params[:page][:url_youtube0] != ""
-        urls = []
-        params[:page][:url_youtube].each do |url|
-          urls << url[1]
+      urls = []
+      params[:page][:url_youtube].each do |key , value|
+        if value != ""
+            urls << value
         end
-        @page.update(:url_youtube => urls)
       end
+      @page.update(:url_youtube => urls)
 
       #if there is photo
       if params[:photos]
@@ -127,13 +127,23 @@ class PagesController < ApplicationController
     @page.update(page_params)
 
     #if there is video
-    if params[:page][:url_youtube0] != ""
-      urls = []
-      params[:page][:url_youtube].each do |url|
-        urls << url[1]
+    binding.pry
+    urls = []
+    if params[:exixt_page] != nil
+      params[:exixt_page][:url_youtube].each do |key , value|
+        if value != ""
+          urls << value
+        end
       end
-      @page.update(:url_youtube => urls)
     end
+    if params[:page][:url_youtube] != nil
+      params[:page][:url_youtube].each do |key , value|
+        if value != ""
+          urls << value
+        end
+      end
+    end
+    @page.update(:url_youtube => urls)
         #if there is image
     if params[:photos]
       params[:photos].each { |image|

@@ -32,7 +32,10 @@
   <label>Video</label>
 
   <div class="actions" id="field">
-    <%= f.text_area :url_youtube, class: "label_text_yt" , value:"" , name:"page[url_youtube][0]"  %>
+    <%@page.url_youtube.each do |url|%>
+    <%index = @page.url_youtube.index(url)%>
+    <%= f.text_area :url_youtube, class: "label_text_yt" , value: url , name:"exixt_page[url_youtube][#{index}]"  %><br>
+    <%end %>
   </div>
 
   <button type="button" id="button">Aggiungi un altro video</button> <br>

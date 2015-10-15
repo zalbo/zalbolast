@@ -28,15 +28,33 @@
       <%= f.text_area :content , class: "label_text" %>
   </div>
 
+  <hr>
   <label>Video</label>
 
   <div class="actions" id="field">
-        <%= f.text_area :url_youtube, class: "label_text_yt" , value:"" , name:"page[url_youtube][0]"  %>
+    <%= f.text_area :url_youtube, class: "label_text_yt" , value:"" , name:"page[url_youtube][0]"  %>
   </div>
 
   <button type="button" id="button">Aggiungi un altro video</button> <br>
 
-  <label>Foto</label>
+
+  <div class="actions">
+
+
+  <hr>
+  <label>Foto</label><br>
+  <label class="under_category">Selezione le foto che vuoi cancellare</label>
+    <%@page.images.each do |image|%>
+
+      <p id="title_checkbox"> <%=image.legend%> </p>
+      <img class="default" src=<%= image.upload_photo.url(:thumbnail)%>>
+      <%= check_box_tag image.id, 'to_be_deleted'  %>
+      <br>
+    <%end%>
+  </div>
+
+
+  <label class="under_category">Carica le nuove foto</label>
   <div class="actions">
    <%= file_field_tag "photos[]", type: :file, multiple: true %>
   </div>

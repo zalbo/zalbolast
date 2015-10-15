@@ -349,11 +349,21 @@ html input[disabled] {
  * 2. Remove excess padding in IE 8/9.
  */
 
-input[type="checkbox"],
+
 input[type="radio"] {
     box-sizing: border-box; /* 1 */
     padding: 0; /* 2 */
+
 }
+
+input[type="checkbox"] {
+    box-sizing: border-box; /* 1 */
+    padding: 0; /* 2 */
+    position: absolute;
+    margin-top: 72px;
+}
+
+
 
 /**
  * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.

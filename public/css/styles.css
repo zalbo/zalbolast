@@ -1,4 +1,6 @@
-
+label.under_category {
+    font-size: small;
+}
 
 div#field {
     margin-bottom: 0px;
@@ -51,6 +53,7 @@ margin: 10px;
 input[type="radio"] {
     height: 100px;
 }
+
 
 img.default {
   width: 150px;

@@ -115,6 +115,15 @@ class PagesController < ApplicationController
   # PATCH/PUT /pages/1
   # PATCH/PUT /pages/1.json
   def update
+    @page.images.each do |image|
+      if params[image.id.to_s] == "to_be_deleted"
+        image.destroy
+        if @article.default_photo == image.id
+          @article.update(:default_photo => nil)
+        end
+      end
+    end
+
     @page.update(page_params)
 
     #if there is video
@@ -130,9 +139,10 @@ class PagesController < ApplicationController
       params[:photos].each { |image|
         @page.images.create(upload_photo: image , article_id: params[:page][:article_id])
       }
+      redirect_to "/pages/rename_photo/?id_page=#{@page.id}"
+    else
+      redirect_to "/"
     end
-
-    redirect_to "/articles"
   end
 
   # DELETE /pages/1

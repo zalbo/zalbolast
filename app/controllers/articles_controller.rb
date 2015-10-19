@@ -1,6 +1,7 @@
 require 'articles_helper'
 
 class ArticlesController < ApplicationController
+  before_action :authenticate_admin , only: [:new , :update, :destroy]
   before_action :authenticate_user!, only: [:new , :update, :destroy]
   before_action :set_article, only: [:show , :edit, :update ]
 
@@ -68,6 +69,14 @@ class ArticlesController < ApplicationController
   end
 
   private
+
+    def authenticate_admin
+      if current_user.try(:admin?)
+        
+      else
+        redirect_to "/", :alert => 'Please Login with Admin.'
+      end
+    end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_article

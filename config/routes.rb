@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
 
+
+  get  'pannel_control/index'
+  post 'pannel_control/delete' => 'pannel_control#delete'
+
   get 'pages/default_photo'
   post 'pages/default_photo/:id' => 'pages#set_photo'
 

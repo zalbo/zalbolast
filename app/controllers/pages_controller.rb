@@ -52,7 +52,8 @@ class PagesController < ApplicationController
   # GET /pages.json
   def index
     @article = Article.find(params[:article_id])
-    @pages = @article.pages.paginate(:page => params[:page], :per_page => 1)
+    @pages = @article.pages
+    #@pages = @article.pages.paginate(:page => params[:page], :per_page => 1)
     default_photo_exist(@article)
   end
 

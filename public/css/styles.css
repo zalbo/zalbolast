@@ -1,3 +1,17 @@
+input.pannel {
+    margin-top: 2px;
+}
+
+
+
+td {
+    padding-left: 30px;
+}
+
+table.article {
+    background: cadetblue;
+}
+
 label.under_category {
     font-size: small;
 }

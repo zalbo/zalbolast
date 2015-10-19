@@ -1,0 +1,30 @@
+<h1>Control Pannel</h1>
+<h3>List of Articles</h3>
+<form action="/pannel_control/delete" method="post">
+
+<table class=article>
+    <tr>
+       <td> ID </td>
+       <td> CATEGORY </td>
+       <td> TITLE </td>
+       <td> CREATE </td>
+       <td> LAST MODIFY </td>
+       <td> DELETE ARTICLE </td>
+   </tr>
+
+<% @articles.each do |article|%>
+  <tr>
+    <td> <%= article.id%> </td>
+    <td> <%= article.category%> </td>
+    <td> <%= article.title%> </td>
+    <td> <%= article.created_at%> </td>
+    <td> <%= article.updated_at%> </td>
+    <td> <input type="checkbox" name="default[]" value="<%=article.id%>" class="pannel" /> </td>
+  </tr>
+
+<%end%>
+
+</table>
+
+<input type="submit" value="Aggiorna">
+</form>

@@ -1,11 +1,11 @@
-<div class="page">
+
 
 <%@pages.each do |page|%>
 
 <p class="text _text text-2"><%= page.title %></p>
 
 <% if user_signed_in? %>
-<%= link_to "Delete Page", page, :method => :delete, :confirm => "are u sure?" %> ||  
+<%= link_to "Delete Page", page, :method => :delete, :confirm => "are u sure?" %> ||
 <%= link_to "Edit Page",  "/articles/#{page.article_id}/pages/#{page.id}/edit" %>
 <% end %>
 
@@ -16,8 +16,7 @@
     <%end%>
   <%end%>
   <hr>
-  <%= render_gallery_for page.images, list_class: 'gallery', item_class: 'photo_gallery' ,  title: 'description'%>
-  <div>
-
+	<% @posts = page.images %>
+	<%= render_gallery_for @posts, original: -> post { post.upload_photo.url(:original) }, thumbnail: -> post { post.upload_photo.url(:thumbnail) } , list_class: 'gallery', item_class: 'photo_gallery' ,  title: 'description'%>
 
 <%end%>

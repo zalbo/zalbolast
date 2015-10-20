@@ -1,6 +1,9 @@
 
-<% if user_signed_in? %>
-<a confirm="are u sure?" rel="nofollow" data-method="Delete Article" href="/articles/<%= params[:article_id] %>">Delete Article </a>
+<%if  current_user.try(:admin?) %>
+<a rel="nofollow" data-method="Delete Article" href="/articles/<%= params[:article_id] %>">Delete Article </a>||
+<a rel="nofollow" data-method="Edit Article" href="/articles/<%= params[:article_id]%>/edit">Edit Article </a>||
+<a rel="nofollow" data-method="Edit Article" href="/articles/<%= params[:article_id]%>/pages/new/?id=<%= params[:article_id]%>">Add New Page </a>
+
 <% end %>
 
 
@@ -11,10 +14,9 @@
 </script>
 
 
-<!-- <div id="pages">
+
+<div id="pages">
   <%= render @pages %>
 </div>
 
-< #%= will_paginate @pages %> -->
-
-<%= render 'page' %>
+<%= will_paginate @pages %>

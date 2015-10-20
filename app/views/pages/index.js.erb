@@ -1,4 +1,8 @@
-$( document ).ready(function() {
+var ready = function() {
+
   $('#pages').append('<%= escape_javascript render(@pages) %>');
   $('.pagination').replaceWith('<%= escape_javascript will_paginate(@pages) %>');
-});
+};
+
+
+$(document).ready(ready)

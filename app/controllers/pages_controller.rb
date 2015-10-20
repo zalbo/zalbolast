@@ -52,14 +52,16 @@ class PagesController < ApplicationController
   # GET /pages.json
   def index
     @article = Article.find(params[:article_id])
-    @pages = @article.pages
-    #@pages = @article.pages.paginate(:page => params[:page], :per_page => 1)
+    #@pages = @article.pages
+    @pages = @article.pages.paginate(:page => params[:page], :per_page => 1)
+
     default_photo_exist(@article)
   end
 
   # GET /pages/1
   # GET /pages/1.json
   def show
+    redirect_to "/"
   end
 
   # GET /pages/new
@@ -128,7 +130,7 @@ class PagesController < ApplicationController
     @page.update(page_params)
 
     #if there is video
-    binding.pry
+
     urls = []
     if params[:exixt_page] != nil
       params[:exixt_page][:url_youtube].each do |key , value|
@@ -175,7 +177,11 @@ class PagesController < ApplicationController
     end
 
     def set_page
-      @page = Page.find(params[:id])
+      if params[:id_page] != nil
+        @page = Page.find(params[:id_page])
+      else
+        @page = Page.find(params[:id])
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

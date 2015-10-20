@@ -1,19 +1,1 @@
 
-<script>
-    $(document).ready(function() {
-        $('._container-1 ').css('background-image', 'url(<%=  @default_photo %>)');
-    });
-</script>
-
-<p class="text _text text-2"><%= @page.title %></p>
-
-<%= markdown(@page.content) %>
-<%@page.url_youtube.each do |url|%>
-<iframe width="560" height="315" src=<%=youtube_embed(url)%> frameborder="0" allowfullscreen></iframe>
-
-<%end%>
-
-
-
-<hr>
-<%= render_gallery_for @images, list_class: 'gallery', item_class: 'photo_gallery' ,  title: 'description'%>

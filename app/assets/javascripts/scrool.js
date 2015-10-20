@@ -1,4 +1,4 @@
-$(document).ready(function() {
+var scrool = function() {
   if ($('.pagination').length) {
     $(window).scroll(function() {
       var url = $('.pagination .next_page').attr('href');
@@ -9,4 +9,7 @@ $(document).ready(function() {
     });
     return $(window).scroll();
   }
-});
+};
+
+$(document).ready(scrool)
+$(document).on('page:load', scrool)

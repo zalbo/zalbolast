@@ -3,7 +3,7 @@ require 'articles_helper'
 class ArticlesController < ApplicationController
   before_action :authenticate_admin , only: [:new , :update, :destroy]
   before_action :authenticate_user!, only: [:new , :update, :destroy]
-  before_action :set_article, only: [:show , :edit, :update ]
+  before_action :set_article, only: [:show , :update ]
 
 
   def category
@@ -34,6 +34,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
+    @article = Article.find(params[:id])
   end
 
   # POST /articles
@@ -50,7 +51,7 @@ class ArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @article.update(article_params)
-        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
+        format.html { redirect_to "/", notice: 'Article was successfully updated.' }
         format.json { render :show, status: :ok, location: @article }
       else
         format.html { render :edit }
@@ -72,7 +73,7 @@ class ArticlesController < ApplicationController
 
     def authenticate_admin
       if current_user.try(:admin?)
-        
+
       else
         redirect_to "/", :alert => 'Please Login with Admin.'
       end

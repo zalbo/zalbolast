@@ -1,3 +1,16 @@
+input {
+    background: #DADADA;
+}
+
+label {
+    font-size: large;
+}
+
+input#user_remember_me {
+    position: inherit;
+    margin-top: 0px;
+}
+
 div#thumbnail {
   width: 100px;
 }
@@ -137,6 +150,7 @@ input[type="submit"] {
     color: #ECA729;
     font-size: inherit;
     background-color: white;
+    font-size: larger;
 }
 
 img.avatar {

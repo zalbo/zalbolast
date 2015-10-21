@@ -5,7 +5,6 @@
     <div id="Hand" class="container _element container-image">
         <%= link_to article.title , article , :class => "title_thumb" %>
         <%= link_to (image_tag (article.pages.first.images[0].upload_photo.url(:thumbnail_medium))), article %>
-
     </div>
   <% end %>
 </div>

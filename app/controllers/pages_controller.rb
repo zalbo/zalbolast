@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   before_action :set_article, only: [  :show , :edit, :update , :destroy]
   protect_from_forgery except: :set_photo
 
-  ##### CHOOSE default PHOTO
+  ### CHOOSE default PHOTO
   def set_photo
     @article = Article.find(params[:id])
     @article.update(:default_photo => params[:default])
@@ -22,14 +22,13 @@ class PagesController < ApplicationController
     end
   end
 
-  #####
+  ### END CHOOSE PHOTO
 
-  #####RENAME PHOTO
+  ### RENAME PHOTO
 
   def rename_photo
     @page = Page.find(params[:id_page])
     @images = @page.images
-
   end
 
   def set_name_photo
@@ -46,15 +45,13 @@ class PagesController < ApplicationController
     end
   end
 
-  ####
+  ### END RENEAME PHOTO
 
   # GET /pages
   # GET /pages.json
   def index
     @article = Article.find(params[:article_id])
-    #@pages = @article.pages
-    @pages = @article.pages.paginate(:page => params[:page], :per_page => 1)
-
+    @pages = @article.pages.paginate(:page => params[:page], :per_page => 1) 
     default_photo_exist(@article)
   end
 

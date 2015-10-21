@@ -41,9 +41,9 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(article_params)
-      if @article.save
-        redirect_to "/articles/#{@article.id}/pages/new/?id=#{@article.id}"
-      end
+    if @article.save
+      redirect_to "/articles/#{@article.id}/pages/new/?id=#{@article.id}"
+    end
   end
 
   # PATCH/PUT /articles/1
@@ -73,7 +73,7 @@ class ArticlesController < ApplicationController
 
     def authenticate_admin
       if current_user.try(:admin?)
-
+        #nothing
       else
         redirect_to "/", :alert => 'Please Login with Admin.'
       end

@@ -33,7 +33,7 @@ gem 'devise' #user gem
 
 gem 'hermitage'#gallery gem
 
-gem 'will_paginate'# infinite scrool
+gem 'will_paginate'# infinite scroll
 
 
 # Use ActiveModel has_secure_password

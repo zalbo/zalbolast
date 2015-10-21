@@ -1,55 +1,49 @@
 <!DOCTYPE html>
 <html>
-
   <title>Zalbo</title>
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1.0">
-
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link href="http://fonts.googleapis.com/css?family=Oswald:300|Bitter:700,400" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/css/standardize.css">
   <link rel="stylesheet" href="/css/styles.css">
+  <div class="background_login">
+  </div>
 
-<div class="background_login">
-</div>
+  <div class="login">
+    <% if user_signed_in? %>
+      <strong class="notice"><%= notice %> </strong>
+      <strong> Logged in as <%= current_user.username %></strong>.
+      <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+      <br>
+      <%= image_tag (current_user.avatar.url(:thumb)), :class => "avatar"%>
+    <% else %>
+      <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+      <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+    <% end %>
 
-<div class="login">
-  <% if user_signed_in? %>
-    <strong class="notice"><%= notice %> </strong>
-    <strong> Logged in as <%= current_user.username %></strong>.
+    <% if notice %>
+      <p ></p>
+    <% end %>
+  </div>
 
-    <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-    <br>
-    <%= image_tag (current_user.avatar.url(:thumb)), :class => "avatar"%>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-    <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-  <% end %>
-
-  <% if notice %>
-    <p ></p>
-  <% end %>
-</div>
-
-<header class="_container _container-1 clearfix">
-
-
+  <header class="_container _container-1 clearfix">
   <%= link_to image_tag("/images/logo-02(2).svg"), articles_path , :class=>"image image-1"%>
   <div class="text _text text-1 font">
     <%if @article%>
       <p class="frase"><%=@article.title%></p>
     <%else %>
-    <p class="frase">"Devi tenere vivo il bambino che è in te:</p>
-    <p class="frase">senza di lui non si può creare"</p>
-    <br>
-    <p class="frase"><span>Joni Mitchell</span><br></p>
+      <p class="frase">"Devi tenere vivo il bambino che è in te:</p>
+      <p class="frase">senza di lui non si può creare"</p>
+      <br>
+      <p class="frase"><span>Joni Mitchell</span><br></p>
     <%end%>
-</div>
-</header>
-<body class="body page-index clearfix ">
+  </div>
+  </header>
+  <body class="body page-index clearfix ">
   <ul class="menu">
     <div class="container _container clearfix">
       <%= link_to "All", articles_path , :class=>"_text _text-3"%>
@@ -61,7 +55,7 @@
       <%= link_to "Contatti", '/articles/category?param1=z_test' , :class=>"_text _text-3"%>
     </div>
   </ul>
-</body>
+  </body>
 </html>
 
 <% if alert %>
@@ -69,8 +63,5 @@
     window.alert("<%= alert %>")
   </script>
 <% end %>
-
-
-
 
 <%= yield %>

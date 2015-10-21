@@ -1,4 +1,4 @@
-var scrool = function() {
+var scroll = function() {
   if ($('.pagination').length) {
     $(window).scroll(function() {
       var url = $('.pagination .next_page').attr('href');
@@ -11,5 +11,5 @@ var scrool = function() {
   }
 };
 
-$(document).ready(scrool)
-$(document).on('page:load', scrool)
+$(document).ready(scroll)
+$(document).on('page:load', scroll)

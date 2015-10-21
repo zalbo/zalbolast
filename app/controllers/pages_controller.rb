@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
-  before_action :set_page, only: [ :show , :edit, :update , :destroy]
-  before_action :set_article, only: [  :show , :edit, :update , :destroy]
+  before_action :set_page, only: [  :edit, :update , :destroy]
+  before_action :set_article, only: [ :edit, :update , :destroy]
   protect_from_forgery except: :set_photo
 
   ### CHOOSE default PHOTO

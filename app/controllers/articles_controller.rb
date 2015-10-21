@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
-    default_photo_exist(@article) #there is the default photo??
+    redirect_to "/"
   end
 
   # GET /articles/new

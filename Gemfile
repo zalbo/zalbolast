@@ -35,6 +35,8 @@ gem 'hermitage'#gallery gem
 
 gem 'will_paginate'# infinite scroll
 
+gem "figaro", "~> 0.7.0" #env
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

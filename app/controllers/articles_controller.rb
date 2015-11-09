@@ -17,6 +17,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
+
     @articles = Article.all
     is_close_article
   end
@@ -24,6 +25,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+
     redirect_to "/"
   end
 

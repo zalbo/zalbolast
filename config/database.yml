@@ -15,14 +15,12 @@ test: &TEST
   password:
 
 production:
-  <<: *default
-  host: localhost
   adapter: postgresql
   encoding: utf8
-  database: zalbo_production
+  database: project_production
   pool: 5
-  username: <%= ENV['ZALBO_DATABASE_USER'] %>
-  password: <%= ENV['ZALBO_DATABASE_PASSWORD'] %>
+  username:
+  password:
 
 cucumber:
   <<: *TEST

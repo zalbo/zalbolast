@@ -19,10 +19,10 @@ production:
   host: localhost
   adapter: postgresql
   encoding: utf8
-  database: appname_production
+  database: zalbo_production
   pool: 5
-  username: <%= ENV['APPNAME_DATABASE_USER'] %>
-  password: <%= ENV['APPNAME_DATABASE_PASSWORD'] %>
+  username: <%= ENV['ZALBO_DATABASE_USER'] %>
+  password: <%= ENV['ZALBO_DATABASE_PASSWORD'] %>
 
 cucumber:
   <<: *TEST

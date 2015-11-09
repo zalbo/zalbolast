@@ -15,12 +15,14 @@ test: &TEST
   password:
 
 production:
+  <<: *default
+  host: localhost
   adapter: postgresql
   encoding: utf8
-  database: project_production
+  database: appname_production
   pool: 5
-  username:
-  password:
+  username: <%= ENV['APPNAME_DATABASE_USER'] %>
+  password: <%= ENV['APPNAME_DATABASE_PASSWORD'] %>
 
 cucumber:
   <<: *TEST

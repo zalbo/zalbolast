@@ -1,0 +1,1 @@
+var scroll=function(){return $(".pagination").length?($(window).scroll(function(){var o=$(".pagination .next_page").attr("href");return o&&$(window).scrollTop()>$(document).height()-$(window).height()-50?($(".pagination").text("Please Wait..."),$.getScript(o)):void 0}),$(window).scroll()):void 0};$(document).ready(scroll),$(document).on("page:load",scroll);

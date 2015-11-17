@@ -5,6 +5,7 @@ class PagesController < ApplicationController
 
   ### CHOOSE default PHOTO
   def set_photo
+    binding.pry
     @article = Article.find(params[:id])
     @article.update(:default_photo => params[:default])
     redirect_to "/"
@@ -41,7 +42,7 @@ class PagesController < ApplicationController
     if @article.article_close == false
       redirect_to "/articles/#{@article.id}/pages/new/?id=#{@article.id}"
     else
-      redirect_to "/pages/default_photo/?id=#{@article.id}"
+      redirect_to "/pages/default_photo/#{@article.id}"
     end
   end
 
@@ -96,14 +97,14 @@ class PagesController < ApplicationController
       if params[:commit] == "Close Article"
         @article.update(:article_close => true)
         if params[:photos]
-          redirect_to "/pages/rename_photo/?id_page=#{@page.id}"
+          redirect_to "/pages/rename_photo/#{@page.id}"
         else
           redirect_to "/"
         end
       elsif params[:commit] == "Create other page"
         @article.update(:article_close => false)
         if params[:photos]
-          redirect_to "/pages/rename_photo/?id_page=#{@page.id}"
+          redirect_to "/pages/rename_photo/#{@page.id}"
         else
           redirect_to "/articles/#{@article.id}/pages/new/?id=#{@article.id}"
         end

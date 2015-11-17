@@ -23,14 +23,14 @@ Rails.application.routes.draw do
   get  'pannel_control/index'
   post 'pannel_control/delete' => 'pannel_control#delete'
 
-  get 'pages/default_photo'
+  get 'pages/default_photo/:id' => 'pages#default_photo'
   post 'pages/default_photo/:id' => 'pages#set_photo'
 
-  get 'pages/rename_photo'
+  get 'pages/rename_photo/:id_page' => 'pages#rename_photo'
   post 'pages/rename_photo/:id_page' => 'pages#set_name_photo'
 
-  get 'articles/category'
-  post 'articles/category' => 'articles#category'
+  get 'category' => 'articles#category'
+  post 'category' => 'articles#category'
 
   post 'articles/:article_id' => 'articles#destroy'
   post 'articles/:id/edit' => 'articles#edit'

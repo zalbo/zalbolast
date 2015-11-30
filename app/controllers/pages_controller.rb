@@ -5,7 +5,6 @@ class PagesController < ApplicationController
 
   ### CHOOSE default PHOTO
   def set_photo
-    binding.pry
     @article = Article.find(params[:id])
     @article.update(:default_photo => params[:default])
     redirect_to "/"

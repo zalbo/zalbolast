@@ -1,33 +1,29 @@
 development:
   adapter: postgresql
   encoding: utf8
-  database: project_development
+  database: zalbo_production
+  host: localhost
   pool: 5
-  username:
-  password:
+  username: zalbo_deployer
+  password: ENV["password_db"]
 
 test: &TEST
   adapter: postgresql
   encoding: utf8
-  database: project_test
+  database: zalbo_production
+  host: localhost
   pool: 5
-  username:
-  password:
+  username: zalbo_deployer
+  password: ENV["password_db"]
 
 production:
-    adapter: postgresql
-    encoding: utf8
-    database: project_development
-    pool: 5
-    username:
-    password:
-  # adapter: postgresql
-  # encoding: utf8
-  # database: blog_production
-  # host: localhost
-  # pool: 5
-  # username: blog
-  # password: secret
+  adapter: postgresql
+  encoding: utf8
+  database: zalbo_production
+  host: localhost
+  pool: 5
+  username: zalbo_deployer
+  password: ENV["password_db"]
 
 cucumber:
   <<: *TEST

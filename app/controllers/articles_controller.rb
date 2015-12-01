@@ -82,7 +82,6 @@ class ArticlesController < ApplicationController
 
     # Use callbacks to share common setup or constraints between actions.
     def set_article
-      binding.pry
       @article = Article.find(params[:id])
     end
 

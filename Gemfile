@@ -28,9 +28,11 @@ gem 'pg' #server postgress
 gem 'pry'
 
 gem 'carrierwave'
-gem 'rmagick'
 
-gem "paperclip", "~> 4.3"
+gem "therubyracer"
+
+gem 'rmagick', require: false
+gem 'paperclip', '~> 4.3'
 gem 'redcarpet', '~> 3.3.2' #render markdown
 gem 'devise' #user gem
 

@@ -1,12 +1,11 @@
 development:
   adapter: postgresql
   encoding: utf8
-  database: zalbo_production
-  host: localhost
+  database: project_development
   pool: 5
-  username: zalbo_deployer
-  password: ENV["password_db"]
-
+  username:
+  password:
+    
 test: &TEST
   adapter: postgresql
   encoding: utf8

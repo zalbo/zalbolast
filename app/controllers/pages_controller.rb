@@ -53,6 +53,7 @@ class PagesController < ApplicationController
     @article = Article.find(params[:article_id])
     @pages_in_order = @article.pages.order('created_at ASC')
     @pages = @pages_in_order.paginate(:page => params[:page], :per_page => 1)
+
     default_photo_exist(@article)
   end
 

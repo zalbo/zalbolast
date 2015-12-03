@@ -11,8 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-//= require hermitage
-//= require hermitageanimation
 //= require jquery_ujs
 //= require turbolinks
 //= require scroll

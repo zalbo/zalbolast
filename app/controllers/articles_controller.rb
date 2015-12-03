@@ -6,13 +6,28 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show , :update ]
 
 
-  def category
-   @filtered_articles = []
-   Article.all.each do |article|
-     if params[:param1] == article.category
-       @filtered_articles << article
-     end
-   end
+  def filtered
+    @filtered_articles = []
+    Article.all.each do |article|
+      if params[:search] == nil
+        if params[:param1] == article.category
+          @filtered_articles << article
+        end
+      else
+        keys_search = params[:search].upcase.split
+
+        keys_search.each do |key|
+          #search in article title
+          if article.title.upcase.include? key
+            @filtered_articles << article
+          end
+
+          article.pages do |page|
+            puts page
+          end
+        end
+      end
+    end
   end
   # GET /articles
   # GET /articles.json

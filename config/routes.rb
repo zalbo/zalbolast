@@ -29,8 +29,8 @@ Rails.application.routes.draw do
   get 'pages/rename_photo/:id_page' => 'pages#rename_photo'
   post 'pages/rename_photo/:id_page' => 'pages#set_name_photo'
 
-  get 'category' => 'articles#category'
-  post 'category' => 'articles#category'
+  get 'filtered' => 'articles#filtered'
+  post 'filtered' => 'articles#filtered'
 
   post 'articles/:article_id' => 'articles#destroy'
   post 'articles/:id/edit' => 'articles#edit'

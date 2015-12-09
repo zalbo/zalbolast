@@ -7,8 +7,10 @@ class ArticlesController < ApplicationController
 
 
   def filtered
+
     @filtered_articles = []
     Article.all.each do |article|
+      pages = article.pages
       if params[:search] == nil
         if params[:param1] == article.category
           @filtered_articles << article
@@ -19,15 +21,26 @@ class ArticlesController < ApplicationController
         keys_search.each do |key|
           #search in article title
           if article.title.upcase.include? key
-            @filtered_articles << article
+            if is_not_clone(article , @filtered_articles)
+              @filtered_articles << article
+            end
           end
-
-          article.pages do |page|
-            puts page
+          #search  in pages
+          pages.each do |page|
+            if page.title.upcase.include? key
+              if is_not_clone(article , @filtered_articles)
+                @filtered_articles << article
+              end
+            elsif page.content.upcase.include? key
+              if is_not_clone(article , @filtered_articles)
+                @filtered_articles << article
+              end
+            end
           end
         end
       end
     end
+    @filtered_articles = @filtered_articles.sort_by &:updated_at
   end
   # GET /articles
   # GET /articles.json

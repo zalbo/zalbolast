@@ -24,7 +24,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  
+  def is_not_clone(i , array )
+    array.each do |element|
+      if element.id == i.id
+        return false
+      end
+    end
+    return true
+  end
+
+
 
   protected
 

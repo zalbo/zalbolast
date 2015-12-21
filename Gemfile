@@ -36,11 +36,14 @@ gem 'paperclip', '~> 4.3'
 gem 'redcarpet', '~> 3.3.2' #render markdown
 gem 'devise' #user gem
 
+gem 'omniauth-facebook'
+
 gem 'hermitage'#gallery gem
 
 gem 'will_paginate'# infinite scroll
 
 gem "figaro", "~> 0.7.0" #env
+gem 'open_uri_redirections' #redirections from HTTP to HTTPS, or from HTTPS to HTTP.  
 
 
 # Use ActiveModel has_secure_password

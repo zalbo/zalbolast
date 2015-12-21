@@ -22,6 +22,7 @@
       <br>
       <%= image_tag (current_user.avatar.url(:thumb)), :class => "avatar"%>
     <% else %>
+     <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
       <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
       <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
     <% end %>

@@ -15,7 +15,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-
   def default_photo_exist(article)
     if article.default_photo != nil
       @default_photo = Image.find(article.default_photo).upload_photo.url(:original)
@@ -33,6 +32,9 @@ class ApplicationController < ActionController::Base
     return true
   end
 
+  def ciaone
+    binding.pry
+  end
 
 
   protected
